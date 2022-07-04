@@ -58,7 +58,7 @@ while True:
     frameHSV=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
     lowerBound = np.array([hueLow,satLow,valLow])
     upperBound = np.array([hueHigh,satHigh,valHigh])
-    myMask = cv2.inRange(frame,lowerBound,upperBound)
+    myMask = cv2.inRange(frameHSV,lowerBound,upperBound)
     #myMask = cv2.bitwise_not(myMask)
     myObject=cv2.bitwise_and(frame,frame,mask=myMask)
     myObjectSmall = cv2.resize(myObject,(int(width/2),int(height/2)))
